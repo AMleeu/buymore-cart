@@ -1,9 +1,22 @@
 import Vue from "vue";
+/*
+  VueRouter related imports
+*/
 import VueRouter from "vue-router";
 import routes from "./routes";
+/*
+  Vuex related imports
+*/
 import { store } from "./store/store";
-import "bootswatch/dist/united/bootstrap.min.css";
+/*
+  Bootstrap related imports
+*/
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+/*
+  Local Components related imports
+*/
 import App from "./App.vue";
 
 // Make BootstrapVue available throughout project
