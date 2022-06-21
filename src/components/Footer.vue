@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    &copy; buymore 2022 | <span> from the TV show Chuck </span>
+    &copy; buymore 2022 | <span> from the tv show CHUCK </span>
   </div>
 </template>
 
