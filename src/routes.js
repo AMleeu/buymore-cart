@@ -1,3 +1,3 @@
-import Header from "./components/Header";
+import Home from "./components/Home";
 
-export default [{ path: "/", component: Header }];
+export default [{ path: "/", component: Home }];
