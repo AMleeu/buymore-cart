@@ -11,8 +11,8 @@
   width: 100%;
   height: 2.5rem;
   line-height: 2.5rem;
-  background-color: #dfdfe0 ;
-  color: rgba(0, 0, 0, 0.61);
+  background-color: #446e9b;
+  color: #fafafa;
   text-align: center;
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
