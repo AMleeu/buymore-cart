@@ -14,7 +14,7 @@
             img-top
           >
             <hr />
-            <b-link href="#" variant="secondary" class="card-link">
+            <b-link @click="goToitemDetails(item)" variant="secondary" class="card-link">
               more info &nbsp;
               <b-icon
                 icon="info-square-fill"
@@ -42,6 +42,11 @@ export default {
   computed:{
     headphones() {
         return this.$store.getters.headphones
+    }
+  },
+  methods:{
+    goToitemDetails(item){
+      this.$router.push({name:"item-details", params:item})
     }
   }
 };
