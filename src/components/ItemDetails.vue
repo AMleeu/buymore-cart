@@ -6,7 +6,7 @@
         <div class="col-8 offset-2 mt-3">
           <h4>{{ item.name }}</h4>
           <b-button-group class="mb-3">
-            <b-button variant="secondary" @click="addToCart(item)">
+            <b-button variant="secondary" @click="addToCart">
                 add to cart
             </b-button>
             <b-button variant="light" @click="goToCart">
@@ -44,6 +44,9 @@ export default {
     Footer,
   },
   methods:{
+    addToCart(){
+      this.$store.commit("addToCart", this.item)
+    },
     goToCart(){
       this.$router.push({path:"/cart"})
     }
