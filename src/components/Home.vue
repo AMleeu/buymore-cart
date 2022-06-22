@@ -3,77 +3,22 @@
     <Header />
     <div class="container page-content">
       <div class="row mb-4">
-        <div class="col-sm-6 col-lg-4 mt-3">
+        <div class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-4 mt-3" 
+             v-for="item in headphones"
+             :key="item.id">
           <b-card
-            title="Headphone dope dope"
-            :sub-title="`R ${200}.00`"
-            :img-src="headphones1"
+            :title="item.name"
+            :sub-title="`R ${item.price}.00`"
+            :img-src="item.imgUrl"
             img-alt="Card image"
             img-top
           >
             <hr />
-            <a href="#" class="card-link">add to cart</a>
-            <b-link href="#" class="card-link">
+            <b-link href="#" variant="secondary" class="card-link">
+              more info &nbsp;
               <b-icon
                 icon="info-square-fill"
-                variant="secondary"
-                font-scale="1.5"
-              ></b-icon>
-            </b-link>
-          </b-card>
-        </div>
-        <div class="col-sm-6 col-lg-4 mt-3">
-          <b-card
-            title="Headphone dope dope"
-            :sub-title="`R ${200}.00`"
-            :img-src="headphones1"
-            img-alt="Card image"
-            img-top
-          >
-            <hr />
-            <a href="#" class="card-link">add to cart</a>
-            <b-link href="#" class="card-link">
-              <b-icon
-                icon="info-square-fill"
-                variant="secondary"
-                font-scale="1.5"
-              ></b-icon>
-            </b-link>
-          </b-card>
-        </div>
-        <div class="col-sm-6 col-lg-4 mt-3">
-          <b-card
-            title="Headphone dope dope"
-            :sub-title="`R ${200}.00`"
-            :img-src="headphones1"
-            img-alt="Card image"
-            img-top
-          >
-            <hr />
-            <a href="#" class="card-link">add to cart</a>
-            <b-link href="#" class="card-link">
-              <b-icon
-                icon="info-square-fill"
-                variant="secondary"
-                font-scale="1.5"
-              ></b-icon>
-            </b-link>
-          </b-card>
-        </div>
-        <div class="col-sm-6 col-lg-4 mt-3">
-          <b-card
-            title="Headphone dope dope"
-            :sub-title="`R ${200}.00`"
-            :img-src="headphones1"
-            img-alt="Card image"
-            img-top
-          >
-            <hr />
-            <a href="#" class="card-link">add to cart</a>
-            <b-link href="#" class="card-link">
-              <b-icon
-                icon="info-square-fill"
-                variant="secondary"
+                variant=""
                 font-scale="1.5"
               ></b-icon>
             </b-link>
@@ -89,18 +34,16 @@
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 
-import headphones1 from "../assets/headphones1.webp";
-
 export default {
   components: {
     Header,
     Footer,
   },
-  data() {
-    return {
-      headphones1,
-    };
-  },
+  computed:{
+    headphones() {
+        return this.$store.getters.headphones
+    }
+  }
 };
 </script>
 
