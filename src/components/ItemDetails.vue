@@ -53,13 +53,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.page-container {
-  position: relative;
-  min-height: 100vh;
-}
-.page-content {
-  padding-bottom: 2.5rem !important; /* Footer height */
-}
-</style>
