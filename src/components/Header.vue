@@ -25,7 +25,6 @@
 }
 .header-badge {
   font-size: 0.95rem;
-  margin-top: -5px !important;
 }
 </style>
 
