@@ -47,9 +47,39 @@ const store = new Vuex.Store({
         imgUrl: headphones4,
       },
     ],
+    cartItemsCount: 0,
+    cartItems: [],
   },
   getters: {
     headphones: (state) => state.headphones,
+    cartItemsCount: (state) => state.cartItemsCount,
+  },
+  mutations: {
+    addToCart(state, payload) {
+      // create new item with an additional property of quantity:1
+      let item = { ...payload, quantity: 1 };
+      /*
+        if cartItems is not empty, 
+          check if the item is not already in cartItems 
+            if it is, find its index and increase its quantity by 1
+            else add it to cartItems
+        else
+          add it to cart items
+        either way increment cartItemsCount by 1
+      */
+      if (state.cartItems.length > 0) {
+        let isInCart = state.cartItems.some((i) => i.id === item.id);
+        if (isInCart) {
+          let itemIndex = state.cartItems.findIndex((i) => i.id === item.id);
+          state.cartItems[itemIndex]["quantity"] += 1;
+        } else {
+          state.cartItems.push(item);
+        }
+      } else {
+        state.cartItems.push(item);
+      }
+      state.cartItemsCount++;
+    },
   },
 });
 
