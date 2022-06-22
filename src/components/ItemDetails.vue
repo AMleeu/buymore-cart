@@ -6,10 +6,10 @@
         <div class="col-8 offset-2 mt-3">
           <h4>{{ item.name }}</h4>
           <b-button-group class="mb-3">
-            <b-button variant="secondary">
+            <b-button variant="secondary" @click="addToCart(item)">
                 add to cart
             </b-button>
-            <b-button variant="light">
+            <b-button variant="light" @click="goToCart">
                 <b-icon icon="cart" font-scale="1.5"></b-icon>
             </b-button>
           </b-button-group>
@@ -43,6 +43,11 @@ export default {
     Header,
     Footer,
   },
+  methods:{
+    goToCart(){
+      this.$router.push({path:"/cart"})
+    }
+  }
 };
 </script>
 
