@@ -1,13 +1,28 @@
 <template>
   <div id="app">
+    <preloader v-if="showPreloader" />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Preloader from "./components/Preloader.vue"
+
 export default {
   name: 'App',
   components: {
+    Preloader
+  },
+  data(){
+    return{
+      showPreloader:true
+    }
+  },
+  mounted(){
+    /*
+      hide Preloader after 5 seconds of having rendred
+    */
+    setTimeout(()=>this.showPreloader=false, 4000);
   }
 }
 </script>
