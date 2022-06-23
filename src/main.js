@@ -30,8 +30,9 @@ Vue.config.productionTip = false;
 
 // instantiate Vue router
 const router = new VueRouter({
-  routes,
   mode: "history",
+  base: "/buymore-cart/",
+  routes,
 });
 
 new Vue({

@@ -64,6 +64,7 @@
   }
   100% {
     transform: rotate(370deg);
+    opacity:0;
   }
 }
 </style>
