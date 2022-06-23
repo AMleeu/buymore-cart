@@ -8,7 +8,7 @@
              :key="item.id">
           <b-card
             :title="item.name"
-            :sub-title="`R ${item.price}.00`"
+            :sub-title="`R ${applyformatPrice(item.price)}`"
             :img-src="item.imgUrl"
             img-alt="Card image"
             img-top
@@ -31,8 +31,11 @@
 </template>
 
 <script>
+// import components
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
+// import filters
+import {formatPrice} from "../filters/filters"
 
 export default {
   components: {
@@ -47,7 +50,10 @@ export default {
   methods:{
     goToitemDetails(item){
       this.$router.push({name:"item-details", params:item})
+    },
+    applyformatPrice(price){
+      return formatPrice(price) 
     }
-  }
+  },
 };
 </script>

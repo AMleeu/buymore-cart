@@ -19,7 +19,7 @@
                   {{ item.quantity }}
                 </b-badge>
                 <small>
-                  {{ `R ${item.price}.00` }}
+                 R {{item.price | formatPrice}} 
                 </small>
                 <div>
                   <b-img
@@ -47,7 +47,7 @@
       </div>
       <div class="row mb-4 mt-3">
         <div class="col-6 offset-6 col-md-4 offset-md-6 text-right">
-            <b-alert show variant="light">total is: <hr/> R {{total}}.00</b-alert>
+            <b-alert show variant="light">total is: <hr/> R {{total | formatPrice}}</b-alert>
         </div>
       </div>
     </div>
@@ -56,8 +56,11 @@
 </template>
 
 <script>
+// import components
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
+// import filters
+import {formatPrice} from "../filters/filters"
 
 export default {
   components: {
@@ -84,6 +87,9 @@ export default {
       this.$store.commit("removeFromCart", item);
     },
   },
+  filters:{
+    formatPrice,
+  }
 };
 </script>
 <style scoped>

@@ -20,7 +20,7 @@
             :img-src="item.imgUrl"
             img-alt="Card image"
             img-bottom
-            :footer="`R ${item.price}.00`"
+            :footer="`R ${applyformatPrice(item.price)}`"
             footer-tag="header"
           >
             <b-card-text> {{ item.desc }} </b-card-text>
@@ -33,8 +33,11 @@
 </template>
 
 <script>
+// import components
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
+// import filters
+import {formatPrice} from "../filters/filters"
 
 export default {
   data() {
@@ -55,7 +58,10 @@ export default {
     },
     removeFromCart(){
       this.$store.commit("removeFromCart", this.item)
+    },
+    applyformatPrice(price){
+      return formatPrice(price) 
     }
-  }
+  },
 };
 </script>
