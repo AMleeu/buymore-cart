@@ -80,6 +80,31 @@ const store = new Vuex.Store({
       }
       state.cartItemsCount++;
     },
+    removeFromCart(state, payload) {
+      /*
+        if cartItems in not empty 
+          if item is in cart 
+            find item index 
+            if item's quantity is greater than 0
+              decrease its quantity by 1
+              & 
+              decrement cartItemsCount by -1
+            if item has a quantity of 0 remove it from cart
+      */
+      if (state.cartItems.length > 0) {
+        let isInCart = state.cartItems.some((i) => i.id === payload.id);
+        if (isInCart) {
+          let itemIndex = state.cartItems.findIndex((i) => i.id === payload.id);
+          if (state.cartItems[itemIndex]["quantity"] > 0) {
+            state.cartItems[itemIndex]["quantity"] -= 1;
+            state.cartItemsCount--;
+          }
+          if (state.cartItems[itemIndex]["quantity"] === 0) {
+            state.cartItems.splice(itemIndex, 1);
+          }
+        }
+      }
+    },
   },
 });
 

@@ -12,6 +12,9 @@
             <b-button variant="light" @click="goToCart">
                 <b-icon icon="cart" font-scale="1.5"></b-icon>
             </b-button>
+            <b-button variant="light" @click="removeFromCart">
+                <b-icon icon="dash" font-scale="1.5"></b-icon>
+            </b-button>
           </b-button-group>
           <b-card
             :img-src="item.imgUrl"
@@ -49,6 +52,9 @@ export default {
     },
     goToCart(){
       this.$router.push({path:"/cart"})
+    },
+    removeFromCart(){
+      this.$store.commit("removeFromCart", this.item)
     }
   }
 };
