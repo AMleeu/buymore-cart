@@ -53,6 +53,7 @@ const store = new Vuex.Store({
   getters: {
     headphones: (state) => state.headphones,
     cartItemsCount: (state) => state.cartItemsCount,
+    cartItems: (state) => state.cartItems,
   },
   mutations: {
     addToCart(state, payload) {
