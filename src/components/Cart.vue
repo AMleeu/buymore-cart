@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container">
+  <div :class="['page-container', cartItemsCount > 0? 'min-width-446px':'' ]">
     <Header />
     <!--
       conditionally show CartEmpty if cart is empty 
@@ -32,3 +32,18 @@ export default {
   }
 }
 </script>
+
+<style>
+/*
+  if CartWithItems is rendered then make it so that 
+  the page-container has min-width of 446px 
+  because 
+  the <b-list-group-item> in CartWithItems doesn't fit into 
+  a parent with a  width of less than 446px
+*/
+@media (max-width: 446px) {
+  .min-width-446px{
+    min-width: 446px !important;
+  }
+}
+</style>

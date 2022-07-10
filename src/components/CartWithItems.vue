@@ -85,6 +85,9 @@ export default {
 </script>
 
 <style scoped>
+.list-group-item:hover{
+  cursor:pointer;
+}
 .cart-item-image {
   width: 49px !important;
   height: 49px !important;
@@ -105,5 +108,5 @@ small.cart-item-name {
     transform: scale(1.12);
     min-width: 146.75px !important;
   }
-}
+} 
 </style>
