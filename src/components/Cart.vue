@@ -7,7 +7,7 @@
      -->
     <CartEmpty v-show="cartItemsCount === 0" />
     <CartWithItems v-show="cartItemsCount > 0" />
-    <Footer />
+    <Footer/>
   </div>
 </template>
 

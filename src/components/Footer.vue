@@ -1,8 +1,18 @@
 <template>
-  <div id="footer">
+  <div id="footer" :class="[cartItemsCount >0? 'hide-min-width-446px':'']">
     &copy; buymore 2022
   </div>
 </template>
+
+<script>
+export default {
+  computed:{
+      cartItemsCount() {
+        return this.$store.getters.cartItemsCount;
+    }
+  }
+}
+</script>
 
 <style scoped>
 #footer {
@@ -18,5 +28,14 @@
 }
 #footer span {
   color: #212121;
+}
+/*
+  if cart has items
+    hide footer on viewports less than 446px
+*/
+@media (max-width: 446px) {
+  #footer.hide-min-width-446px{
+    display:none !important;
+  }
 }
 </style>
