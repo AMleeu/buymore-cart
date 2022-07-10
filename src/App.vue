@@ -20,9 +20,17 @@ export default {
   },
   mounted(){
     /*
-      hide Preloader after 5 seconds of having rendred
+      hide Preloader after 6 seconds of having rendered
     */
-    setTimeout(()=>this.showPreloader=false, 4000);
+    setTimeout(()=>{
+      this.showPreloader=false
+      }, 6000);
+    /*
+      then wait half a second more & scroll to top
+    */
+    setTimeout(()=>{
+      window.scrollTo(0, 0)
+      }, 6500);
   }
 }
 </script>

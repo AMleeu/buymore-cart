@@ -1,8 +1,9 @@
 <template>
   <div class="preloader-wrapper">
-    <b-icon icon="cart" class="cart-icon"></b-icon>
-    <b-icon icon="cart" class="cart-icon"></b-icon>
-    <b-icon icon="cart" class="cart-icon"></b-icon>
+    <div class="preloader">
+      <b-icon icon="bullseye" class="bullseye-icon"></b-icon>
+      <b-icon icon="brightness-low" class="brightness-low-icon"></b-icon>
+    </div>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 .preloader-wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,53 +20,42 @@
   background-color: #fafafa;
   z-index: 999;
 }
-.cart-icon{
-  height: 775px;
-  width: 75px;
-  transform: rotate(180deg);
-  font-size: 1px;
-  padding: 1px;
+.preloader{
+  height:50px;
+  animation-name: rotatePreloader;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.b-icon{
+  margin:10px;
+  animation-name: scaleIcons;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.bullseye-icon{
+  width: 20px;
+  height:20px;
+  transform:scaleX(-1);
   color: #446e9b;
-  margin-right: 5px;
-  margin-left: 5px;
-  transform: rotateX(180deg);
 }
-.cart-icon:nth-child(1){
-    animation: floorcrossright 10s infinite;
-}
-.cart-icon:nth-child(2){
-    margin-top:-10vh;
-    animation: floorcrossleft 10s infinite;
-}
-.cart-icon:nth-child(3){
-    margin-top:-25vh;
-    animation: spin 5s infinite;
+.brightness-low-icon{
+  width: 45px;
+  height: 45px;
+  transform:scale(0);
+  animation-delay: 0.58s;
 }
 
-@keyframes floorcrossleft {
-  0% {
-    transform: translateX(-100vw);
-  }
-  100% {
-    transform: translateX(100vw);
+@keyframes rotatePreloader {
+  to{
+    transform:rotate(360deg);
   }
 }
-@keyframes floorcrossright {
-  0% {
-    transform: translateX(100vw);
-    transform: rotate(180deg,180deg);
-  }
-  100% {
-    transform: translateX(-100vw);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(370deg);
-    opacity:0;
+
+@keyframes scaleIcons{
+  50%{
+    transform:scale(2.5);
   }
 }
 </style>
